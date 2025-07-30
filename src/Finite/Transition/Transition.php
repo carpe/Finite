@@ -48,14 +48,14 @@ class Transition implements PropertiesAwareTransitionInterface
      * @param string|array    $initialStates
      * @param string          $state
      * @param callable|null   $guard
-     * @param OptionsResolver $propertiesOptionsResolver
+     * @param OptionsResolver|null $propertiesOptionsResolver
      */
     public function __construct(
         $name,
         $initialStates,
         $state,
         $guard = null,
-        OptionsResolver $propertiesOptionsResolver = null
+        ?OptionsResolver $propertiesOptionsResolver = null
     ) {
         if (null !== $guard && !is_callable($guard)) {
             throw new \InvalidArgumentException('Invalid callable guard argument passed to Transition::__construct().');
